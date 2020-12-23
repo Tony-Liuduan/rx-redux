@@ -1,8 +1,6 @@
 import React from 'react';
-// import { AppLayout } from '@/components/AppLayout';
-// import { Redirect, Route, Switch } from 'react-router-dom';
 
-export class ObservableDemo extends React.Component<any, any> {
+class ObservableDemo extends React.Component<any, any> {
     constructor(props) {
         super(props);
     }
@@ -11,3 +9,5 @@ export class ObservableDemo extends React.Component<any, any> {
         return <div>observable</div>
     }
 }
+
+export default ObservableDemo;
