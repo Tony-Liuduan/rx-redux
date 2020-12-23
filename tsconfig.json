@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "target": "es6", // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES6'/'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
-    "lib": ["es6", "dom"], // 指定要包含在编译中的库文件
-    "module": "CommonJS",
+    "target": "esnext", // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES6'/'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+    "lib": ["esnext", "dom"], // 指定要包含在编译中的库文件
+    "module": "esnext",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -16,6 +16,7 @@
       "@/*": ["./src/*"],
       "@constants/*": ["./src/constants/*"],
       "@containers/*": ["./src/containers/*"],
+      "@components/*": ["./src/components/*"],
       "@actions/*": ["./src/actions/*"],
       "@reducers/*": ["./src/reducers/*"],
       "@epics/*": ["./src/epics/*"],

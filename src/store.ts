@@ -1,23 +1,21 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createEpicMiddleware } from 'redux-observable';
-import * as reducers from './store/reducers';
-import rootEpic from './store/epics';
+// import * as reducers from './store/reducers';
+// import rootEpic from './store/epics';
 
 
-const initValues = {
-    count: 0
-}
+const initValues = {}
 
 const epicMiddleware = createEpicMiddleware()
 
-export default function () {
+export function createReduxStore() {
     const store = createStore(
-        combineReducers(reducers),
+        combineReducers({}),
         initValues,
-        applyMiddleware(epicMiddleware, thunkMiddleware)
+        // applyMiddleware(epicMiddleware, thunkMiddleware)
     );
 
-    epicMiddleware.run(rootEpic)
+    // epicMiddleware.run(rootEpic)
     return store
 }

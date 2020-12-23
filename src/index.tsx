@@ -4,16 +4,24 @@ import {
     BrowserRouter,
     Switch,
     Route,
-    Redirect,
 } from 'react-router-dom';
-import { App } from './containers/App/App';
+import { Provider } from 'react-redux';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
+import { createReduxStore } from './store';
+import { App } from '@containers/App';
+import 'antd/dist/antd.css';
 
+const store = createReduxStore();
 ReactDOM.render(
-    <BrowserRouter basename="/basename">
-        <Switch>
-            <Route path="/home" component={App} />
-            <Redirect to={{ pathname: "/home" }} />
-        </Switch>
-    </BrowserRouter>,
-    document.getElementById("root"),
+    <ConfigProvider locale={zhCN}>
+        <Provider store={store}>
+            <BrowserRouter basename='/'>
+                <Switch>
+                    <Route component={App} />
+                </Switch>
+            </BrowserRouter>
+        </Provider>
+    </ConfigProvider>,
+    document.getElementById('root'),
 );
