@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startPolling, stopPolling } from '@actions/thunk';
+import ActionPanel from '@/components/ActionPanel';
+import ListTable from '@/components/ListTable';
 
 // 间隔一段时间轮询数据列表
 // 支持搜索，触发搜索时，重新轮询
@@ -20,14 +22,16 @@ class ThunkDemo extends React.Component<any, any> {
     }
 
     render() {
-        console.log(this.props.xxx);
-        return <div>thunk</div>
+        return (
+            <>
+                <ActionPanel />
+                <ListTable />
+            </>
+        )
     }
 }
 
-const mapStateToProps = (state) => ({
-    'xxx': state,
-});
+const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch) => ({
     startPolling: () => dispatch(startPolling()),
     stopPolling: () => dispatch(stopPolling())

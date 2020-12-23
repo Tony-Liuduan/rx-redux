@@ -15,9 +15,7 @@ const initialState = {
     },
     isPolling: false,
     loading: false,
-    error: {
-        fetch: null
-    }
+    error: null,
 }
 
 export default function reducer(state = initialState, action) {

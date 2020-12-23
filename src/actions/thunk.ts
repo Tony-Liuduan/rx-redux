@@ -39,7 +39,7 @@ function fetchUsers() {
                 page: pagination.page,
                 pageSize: pagination.pageSize,
             }
-            request.get('/api/thunk', param)
+            request.get('/api/users', param)
                 .then((resp) => {
                     const { total, list } = resp.data
                     dispatch({

@@ -48,10 +48,59 @@ module.exports = {
         port: 3005,
         historyApiFallback: true,
         before(app) {
-            app.get('/api/test', (req, res) => {
+            app.get('/api/users', (req, res) => {
                 res.json({
                     code: 0,
-                    msg: "hello world"
+                    msg: 'success',
+                    data: {
+                        list: [
+                            {
+                                id: 1,
+                                username: '艾伦',
+                            },
+                            {
+                                id: 2,
+                                username: '莱纳',
+                            },
+                            {
+                                id: 3,
+                                username: '三笠',
+                            },
+                            {
+                                id: 4,
+                                username: '小新',
+                            },
+                            {
+                                id: 5,
+                                username: '妮妮',
+                            },
+                            {
+                                id: 6,
+                                username: '柯南',
+                            },
+                            {
+                                id: 7,
+                                username: '纳入多',
+                            },
+                            {
+                                id: 8,
+                                username: 'kazubo',
+                            },
+                            {
+                                id: 9,
+                                username: '阿尼',
+                            },
+                            {
+                                id: 10,
+                                username: '阿尔敏',
+                            },
+                            {
+                                id: 11,
+                                username: '贝尔托克',
+                            },
+                        ],
+                        total: 83,
+                    }
                 });
             });
         },
