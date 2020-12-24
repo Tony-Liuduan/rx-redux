@@ -1,4 +1,5 @@
 const path = require('path');
+const url = require('url');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
@@ -49,6 +50,7 @@ module.exports = {
         historyApiFallback: true,
         before(app) {
             app.get('/api/users', (req, res) => {
+                const random = url.parse(req.url).query + ' : @' + (Math.random() * 10 + '').slice(2, 7);
                 res.json({
                     code: 0,
                     msg: 'success',
@@ -56,50 +58,50 @@ module.exports = {
                         list: [
                             {
                                 id: 1,
-                                username: '艾伦',
+                                username: '艾伦_' + random,
                             },
                             {
                                 id: 2,
-                                username: '莱纳',
+                                username: '莱纳_' + random,
                             },
                             {
                                 id: 3,
-                                username: '三笠',
+                                username: '三笠_' + random,
                             },
                             {
                                 id: 4,
-                                username: '小新',
+                                username: '小新_' + random,
                             },
                             {
                                 id: 5,
-                                username: '妮妮',
+                                username: '妮妮_' + random,
                             },
                             {
                                 id: 6,
-                                username: '柯南',
+                                username: '柯南_' + random,
                             },
                             {
                                 id: 7,
-                                username: '纳入多',
+                                username: '纳入多_' + random,
                             },
                             {
                                 id: 8,
-                                username: 'kazubo',
+                                username: 'kazubo_' + random,
                             },
                             {
                                 id: 9,
-                                username: '阿尼',
+                                username: '阿尼_' + random,
                             },
                             {
                                 id: 10,
-                                username: '阿尔敏',
+                                username: '阿尔敏_' + random,
                             },
                             {
                                 id: 11,
-                                username: '贝尔托克',
+                                username: '贝尔托克_' + random,
                             },
                         ],
-                        total: 83,
+                        total: 11,
                     }
                 });
             });

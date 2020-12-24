@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Table as AntTable, message } from 'antd';
 import { PaginationProps } from 'antd/lib/pagination';
 import { ColumnProps } from 'antd/lib/table';
+import { changePagination } from '@/actions/thunk';
 
 const columns: Array<ColumnProps<any>> = [{
     key: '_rank',
@@ -22,19 +23,12 @@ const ListTable: React.FC<any> = (props) => {
         message.error(error)
     }
 
-    const handleTableChange = (pagination: PaginationProps) => {
-        changePagination({
-            page: pagination.current,
-            pageSize: pagination.pageSize
-        })
-    }
-
     return (
         <AntTable
             dataSource={dataSource}
             columns={columns}
             pagination={pagination}
-            onChange={handleTableChange}
+            onChange={changePagination}
             loading={loading}
             size="small"
             rowKey="id"
@@ -46,18 +40,12 @@ const ListTable: React.FC<any> = (props) => {
 const mapStateToProps = ({ thunk }) => ({
     dataSource: thunk.list,
     pagination: {
-        total: thunk.pagination.total,
-        current: thunk.pagination.page,
-        pageSize: thunk.pagination.pageSize
+        ...thunk.pagination,
     },
-    loading: thunk.isSilentLoading ? false : thunk.loading,
-    error: thunk.error
-})
-
+    loading: thunk.loading,
+    error: thunk.error,
+});
 const mapDispatchToProps = (dispatch) => ({
-    changePagination: (pagination) => {
-        // return dispatch(changePagination(pagination))
-    }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ListTable)
+    changePagination: (pagination) => dispatch(changePagination(pagination)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ListTable);

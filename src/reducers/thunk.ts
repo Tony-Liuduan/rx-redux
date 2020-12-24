@@ -3,19 +3,24 @@ import {
     FETCH_SUCCESS,
     FETCH_ERROR,
     POLLING_START,
-    POLLING_STOP
+    POLLING_STOP,
+    CHANGE_QUERY,
+    CHANGE_SORT,
+    CHANGE_PAGINATION
 } from '@constants/actionTypes/thunk'
 
 const initialState = {
     list: [],
     pagination: {
         total: 0,
-        page: 1,
+        current: 1,
         pageSize: 10
     },
     isPolling: false,
     loading: false,
     error: null,
+    query: '',
+    sort: 'stars',
 }
 
 export default function reducer(state = initialState, action) {
@@ -31,6 +36,27 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 isPolling: false,
+            }
+        }
+        case CHANGE_QUERY: {
+            return {
+                ...state,
+                query: payload.query,
+            }
+        }
+        case CHANGE_SORT: {
+            return {
+                ...state,
+                sort: payload.sort,
+            }
+        }
+        case CHANGE_PAGINATION: {
+            return {
+                ...state,
+                pagination: {
+                    ...state.pagination,
+                    ...payload.pagination,
+                }
             }
         }
         case FETCH_START: {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Row, Col, Select, Input } from 'antd';
+import { changeQuery, changeSort } from '@/actions/thunk';
 
 const Option = Select.Option
 const Search = Input.Search
@@ -45,8 +46,8 @@ const mapStateToProps = ({ thunk }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    // changeQuery: (query) => dispatch(changeQuery(query)),
-    // changeSort: (sort) => dispatch(changeSort(sort)),
+    changeQuery: (query) => dispatch(changeQuery(query)),
+    changeSort: (sort) => dispatch(changeSort(sort)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionPanel)
