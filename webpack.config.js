@@ -41,7 +41,6 @@ module.exports = {
             '@actions': path.resolve(__dirname, './src/actions'),
             '@reducers': path.resolve(__dirname, './src/reducers'),
             '@epics': path.resolve(__dirname, './src/epics'),
-            '@types': path.resolve(__dirname, './src/types'),
             "@apis": path.resolve(__dirname, './src/apis'),
         }
     },

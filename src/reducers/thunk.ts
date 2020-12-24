@@ -42,12 +42,20 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 query: payload.query,
+                pagination: {
+                    ...state.pagination,
+                    page: 1
+                },
             }
         }
         case CHANGE_SORT: {
             return {
                 ...state,
                 sort: payload.sort,
+                pagination: {
+                    ...state.pagination,
+                    page: 1
+                },
             }
         }
         case CHANGE_PAGINATION: {

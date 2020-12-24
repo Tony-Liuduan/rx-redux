@@ -20,10 +20,9 @@
       "@actions/*": ["./src/actions/*"],
       "@reducers/*": ["./src/reducers/*"],
       "@epics/*": ["./src/epics/*"],
-      "@types/*": ["./src/types/*"],
       "@apis/*": ["./src/apis/*"]
     }
   },
-  "include": ["src/**/*", "lib/rx-redex/createReactiveStore.ts"],
+  "include": ["src/**/*", "lib/**/*."],
   "exclude": ["node_modules", "config", "public", "mock", "coverage"]
 }

@@ -85,3 +85,10 @@
 ### 启发
 
 - 探索 rxjs 和 redux 的关系, 如果 rxjs 能提供类似 redux 的全局数据管理岂不是更香 ??
+
+代码走起
+
+```sh
+npm i
+npm start
+```

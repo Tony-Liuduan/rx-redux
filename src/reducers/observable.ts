@@ -20,7 +20,7 @@ const initialState = {
     loading: false,
     error: null,
     query: '',
-    sort: 'stars',
+    sort: 'forks',
 }
 
 export default function reducer(state = initialState, action) {
@@ -42,12 +42,20 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 query: payload.query,
+                pagination: {
+                    ...state.pagination,
+                    page: 1
+                },
             }
         }
         case CHANGE_SORT: {
             return {
                 ...state,
                 sort: payload.sort,
+                pagination: {
+                    ...state.pagination,
+                    page: 1
+                },
             }
         }
         case CHANGE_PAGINATION: {
@@ -71,10 +79,10 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: null,
-                list: payload.list,
+                list: payload.data.list,
                 pagination: {
                     ...state.pagination,
-                    total: payload.total
+                    total: payload.data.total
                 },
             }
         }

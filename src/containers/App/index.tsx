@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppLayout } from '@/components/AppLayout';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import AppLayout from '@/components/AppLayout';
 import ThunkDemo from '../ThunkDemo';
 import ObservableDemo from '../ObservableDemo';
 
