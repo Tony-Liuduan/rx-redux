@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Table as AntTable, message } from 'antd';
-import { PaginationProps } from 'antd/lib/pagination';
 import { ColumnProps } from 'antd/lib/table';
-import { changePagination } from '@/actions/thunk';
+import { changePagination } from '@/actions/observable';
 
 const columns: Array<ColumnProps<any>> = [{
     key: '_rank',
@@ -17,10 +16,10 @@ const columns: Array<ColumnProps<any>> = [{
 }]
 
 const ListTable: React.FC<any> = (props) => {
-    const { dataSource, pagination, loading, changePagination, error } = props
+    const { dataSource, pagination, loading, changePagination, error } = props;
 
     if (error) {
-        message.error(error)
+        message.error(error);
     }
 
     return (
@@ -37,13 +36,13 @@ const ListTable: React.FC<any> = (props) => {
     )
 }
 
-const mapStateToProps = ({ thunk }) => ({
-    dataSource: thunk.list,
+const mapStateToProps = ({ observable }) => ({
+    dataSource: observable.list,
     pagination: {
-        ...thunk.pagination,
+        ...observable.pagination,
     },
-    loading: thunk.loading,
-    error: thunk.error,
+    loading: observable.loading,
+    error: observable.error,
 });
 const mapDispatchToProps = (dispatch) => ({
     changePagination: (pagination) => dispatch(changePagination(pagination)),
